@@ -9,8 +9,7 @@ import java.util.ArrayList;
 public class FourLetter {
 
 	public static void main(String[] args) {
-		
-		int i = 0;		
+			
 		String[] dictionary;
 		ArrayList<String> text = new ArrayList<String>();
 		
@@ -22,7 +21,6 @@ public class FourLetter {
 			String line = null;
 			while((line = buffRead.readLine())!= null){
 				text.add(line);
-				i++;
 			}
 			buffRead.close();
 		} catch (FileNotFoundException e) {
@@ -33,9 +31,8 @@ public class FourLetter {
 			e.printStackTrace();
 		}
 		
-		
-		dictionary = text.toArray(new String[] {});
-		
+		//input param
+		dictionary = text.toArray(new String[] {});		
 		String source = "SPLIT";
 		
 		fourLettersInCommon(source, dictionary);
