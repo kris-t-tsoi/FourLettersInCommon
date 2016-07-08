@@ -36,19 +36,21 @@ public class FourLetter {
 		
 		dictionary = text.toArray(new String[] {});
 		
+		String source = "SPLIT";
 		
-		//fourLettersInCommon(source, dictionary);
+		fourLettersInCommon(source, dictionary);
 
 	}
 
 	static String[] fourLettersInCommon(String source, String[] dictionary) {
-
-		String[] consecString = {};
+		
+		ArrayList<String> consecString = new ArrayList<String>();
 		String[] commonWords = {};
-
+		
 		// get all possible four consecutive letter combination from source
-		for (int i = 0; (i + 3) > source.length(); i++) {
-			consecString[i] = source.substring(i, i + 3);
+		for (int i = 0; (i + 4) < source.length()+1; i++) {			
+			consecString.add(source.substring(i, i + 4));
+			System.out.println(consecString.get(i));
 		}
 
 		
