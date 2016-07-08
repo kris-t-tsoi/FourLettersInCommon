@@ -1,4 +1,3 @@
-import java.awt.List;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,17 +41,33 @@ public class FourLetter {
 	static String[] fourLettersInCommon(String source, String[] dictionary) {
 		
 		ArrayList<String> consecString = new ArrayList<String>();
-		String[] commonWords = {};
+		String[] consecStringArray;
+		
+		ArrayList<String> commonWords = new ArrayList<String>();
+		String[] commonWordsArray = {};
 		
 		// get all possible four consecutive letter combination from source
 		for (int i = 0; (i + 4) < source.length()+1; i++) {			
 			consecString.add(source.substring(i, i + 4));
-			System.out.println(consecString.get(i));
 		}
+		consecStringArray = consecString.toArray(new String[] {});
 
+		//brute force.. nested for loop... super gross
+		//compare word in dictionary contains one of the source's substrings
+		for (int j=0;j<dictionary.length;j++){
+			for(int k=0;k<consecStringArray.length;k++){
+				//if word contains one of the substrings then add to common words then break out
+				if(dictionary[j].toUpperCase().contains(consecStringArray[k].toUpperCase())){
+					commonWords.add(dictionary[j]);
+					break;
+				}
+			}
+		}
 		
+		//Change ArrayList into array to return
+		commonWordsArray = commonWords.toArray(new String[] {});		
 		
-		return commonWords;
+		return commonWordsArray;
 
 	}
 
